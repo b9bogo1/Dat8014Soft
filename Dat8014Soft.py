@@ -4,8 +4,6 @@ from pymodbus.device import ModbusDeviceIdentification
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from twisted.internet import reactor
-from threading import Thread
-# from rtdSoft import updating_writer
 
 
 # Initialize your data store

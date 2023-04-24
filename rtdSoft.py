@@ -25,10 +25,8 @@ class UpdatingWriter(Thread):
             payload_1 = builder_1.to_registers()
             payload_2 = builder_2.to_registers()
             # Write the payload to register 0
-            # context.setValues(3, 0, payload_1)
             self.context[0x00].setValues(3, 0, payload_1)
             # Write the payload to register 1
-            # context.setValues(3, 1, payload_2)
             self.context[0x00].setValues(3, 1, payload_2)
-            print(f"DAT8014 running... {payload_1} | {payload_2}")
+            print(f"DAT8014 running... {format(random_float_1, '.3f')} | {format(random_float_2, '.3f')}")
             time.sleep(0.5)
