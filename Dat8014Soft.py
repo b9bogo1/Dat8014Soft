@@ -32,10 +32,6 @@ identity.MajorMinorRevision = '1.6'  # Set the revision
 StartTcpServer(context, identity=identity, address=("127.0.0.1", 5020),
                allow_reuse_address=True, defer_reactor_run=True)
 
-# Start a background thread to update the context every second
-# thread = Thread(target=updating_writer, args=(context,))
-# thread.start()
-
 from rtdSoft import UpdatingWriter
 rtd_thread = UpdatingWriter(context)
 rtd_thread.start()
