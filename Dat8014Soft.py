@@ -5,7 +5,7 @@ from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from twisted.internet import reactor
 from threading import Thread
-from rtdSoft import updating_writer
+# from rtdSoft import updating_writer
 
 
 # Initialize your data store
@@ -33,8 +33,12 @@ StartTcpServer(context, identity=identity, address=("127.0.0.1", 5020),
                allow_reuse_address=True, defer_reactor_run=True)
 
 # Start a background thread to update the context every second
-thread = Thread(target=updating_writer, args=(context,))
-thread.start()
+# thread = Thread(target=updating_writer, args=(context,))
+# thread.start()
+
+from rtdSoft import UpdatingWriter
+rtd_thread = UpdatingWriter(context)
+rtd_thread.start()
 
 # Start the reactor loop
 reactor.run()
