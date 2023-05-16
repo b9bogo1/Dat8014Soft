@@ -3,7 +3,7 @@ from pymodbus.device import ModbusDeviceIdentification
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from twisted.internet import reactor
-from local_configs import get_node
+from configs_local import get_node
 
 DAT8014_NODE = get_node()
 
