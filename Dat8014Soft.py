@@ -1,9 +1,11 @@
-# Import the required modules
 from pymodbus.server.asynchronous import StartTcpServer
 from pymodbus.device import ModbusDeviceIdentification
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from twisted.internet import reactor
+from local_configs import get_node
+
+DAT8014_NODE = get_node()
 
 
 # Initialize your data store
@@ -27,7 +29,7 @@ identity.ModelName = 'DAT8014'  # Set the model name
 identity.MajorMinorRevision = '1.6'  # Set the revision
 
 # Run the server
-StartTcpServer(context, identity=identity, address=("127.0.0.1", 5020),
+StartTcpServer(context, identity=identity, address=(DAT8014_NODE['ip'], DAT8014_NODE['port']),
                allow_reuse_address=True, defer_reactor_run=True)
 
 from rtdSoft import UpdatingWriter
